@@ -15,7 +15,7 @@ namespace CallbackSample
 
             base.OnStartup(e);
 
-
+            new Forms.View.CallbackView().ShowDialog();
 
         }
 

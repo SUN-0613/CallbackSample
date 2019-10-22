@@ -61,6 +61,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\Model\CallbackModel.cs" />
+    <Compile Include="Forms\ViewModel\CallbackViewModel.cs" />
+    <Compile Include="Forms\View\CallbackView.xaml.cs">
+      <DependentUpon>CallbackView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -85,6 +90,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\CommonControls\CommonControls.csproj">
+      <Project>{2f642622-633e-430d-bf13-cfff4077f854}</Project>
+      <Name>CommonControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Common\Common.csproj">
+      <Project>{326c56d4-4067-435f-b7b0-a93b167c2186}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Page Include="Forms\View\CallbackView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -3,10 +3,45 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CallbackSample.Forms.View"
+        xmlns:vm="clr-namespace:CallbackSample.Forms.ViewModel"
         mc:Ignorable="d"
-        Title="CallbackView" Height="450" Width="800">
+        Title="CallbackView" Height="450" Width="250">
+    <Window.DataContext>
+        <vm:CallbackViewModel />
+    </Window.DataContext>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="{Binding CountDown, StringFormat=後{0}秒}" VerticalAlignment="Center" TextAlignment="Center" />
+
+        <ListView Grid.Row="1" ItemsSource="{Binding Values}" >
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem" >
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Integer" Width="200">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding }" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Button Grid.Row="2" Content="作成" >
+            <Button.InputBindings>
+                <MouseBinding MouseAction="LeftClick" Command="{Binding MakeListCommand}" />
+            </Button.InputBindings>
+        </Button>
         
     </Grid>
 </Window>
