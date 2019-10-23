@@ -9,17 +9,9 @@ namespace CallbackSample.Forms.Model
     public class CallbackModel
     {
 
-        /// <summary>コールバック関数デリゲート</summary>
-        /// <param name="values">数値一覧</param>
-        public delegate void Callback(ObservableCollection<int> values);
-
-        /// <summary>コールバック関数デリゲート</summary>
-        /// <param name="values">数値</param>
-        public delegate void Callback2(int value);
-
         /// <summary>一覧作成</summary>
         /// <param name="callback">コールバック関数</param>
-        public void MakeList(Callback callback, Callback2 callback2)
+        public void MakeList(Action<ObservableCollection<int>> callback, Action<int> callback2)
         {
 
             var values = new ObservableCollection<int>();
